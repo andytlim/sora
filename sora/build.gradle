@@ -29,6 +29,12 @@ project.ext {
 jar {
     baseName = "${projectName}"
     version =  "${projectVersion}"
+	manifest { 
+    	attributes "Main-Class": "me.kikimasu.sora.run.Sora"
+  	}  
+  	from {
+    	configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
 }
 
 repositories {
@@ -40,9 +46,9 @@ repositories {
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.7'
+    compile 'org.slf4j:slf4j-simple:1.7.7'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.googlecode.soundlibs:jlayer:1.0.1-1'
-    
 
     testCompile "junit:junit:4.11"
 }

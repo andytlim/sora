@@ -1,13 +1,15 @@
 package me.kikimasu.sora.utility;
 
-import com.sun.istack.internal.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import javazoom.jl.player.advanced.PlaybackEvent;
 import javazoom.jl.player.advanced.PlaybackListener;
 
 public class AudioFile extends PlaybackListener implements Runnable {
-	private static final Logger log = Logger.getLogger(AudioFile.class);
+	
+	private static final Logger log = LoggerFactory.getLogger(AudioFile.class);
 	private String filePath;
 	private AdvancedPlayer player;
 	private Thread playerThread;

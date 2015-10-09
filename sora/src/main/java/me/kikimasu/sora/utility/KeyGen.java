@@ -4,7 +4,12 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Random;
 
-public class KeyGen {	
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class KeyGen {
+	
+	private static final Logger log = LoggerFactory.getLogger(KeyGen.class);
 	private static final char[] symbols;
 	static {
 		StringBuilder tmp = new StringBuilder();

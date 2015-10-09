@@ -9,8 +9,12 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Download {
 	
+	private static final Logger log = LoggerFactory.getLogger(Download.class);
 	public static final int bufferSize = 8192;
 	
 	public static void downloadAudioFile(String url, String path) throws MalformedURLException, IOException {
