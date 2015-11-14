@@ -29,12 +29,15 @@ project.ext {
 jar {
     baseName = "${projectName}"
     version =  "${projectVersion}"
-	manifest { 
+    manifest { 
     	attributes "Main-Class": "me.kikimasu.sora.run.Sora"
-  	}  
-  	from {
-    	configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-	}
+    }  
+    from {
+  	sourceSets.main.allJava // Include source files
+    }
+    from {
+    	configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } // Include compile dependencies
+    }
 }
 
 repositories {
